@@ -1,37 +1,47 @@
-<HTML>
+<!--  ----------------------------------------------------------------------  -->
+<!--  NOTA: Agregue el siguiente elemento <META> a su página <HEAD>.  Si es   -->
+<!--  preciso, modifique el parámetro charset para especificar el conjunto    -->
+<!--  de caracteres de su página HTML.                                        -->
+<!--  ----------------------------------------------------------------------  -->
 
-<HEAD>
+<META HTTP-EQUIV="Content-type" CONTENT="text/html; charset=UTF-8">
+<script src="https://www.google.com/recaptcha/api.js"></script>
+<script>
+ function timestamp() { var response = document.getElementById("g-recaptcha-response"); if (response == null || response.value.trim() == "") {var elems = JSON.parse(document.getElementsByName("captcha_settings")[0].value);elems["ts"] = JSON.stringify(new Date().getTime());document.getElementsByName("captcha_settings")[0].value = JSON.stringify(elems); } } setInterval(timestamp, 500); 
+</script>
 
-<TITLE>Your Title Here</TITLE>
+<!--  ----------------------------------------------------------------------  -->
+<!--  NOTA: Agregue el siguiente elemento <FORM> a su página.                 -->
+<!--  ----------------------------------------------------------------------  -->
 
-</HEAD>
+<form action="https://test.salesforce.com/servlet/servlet.WebToLead?encoding=UTF-8" method="POST">
 
-<BODY BGCOLOR="FFFFFF">
+<input type=hidden name='captcha_settings' value='{"keyname":"testCapcha","fallback":"true","orgId":"00D780000008fpL","ts":""}'>
+<input type=hidden name="oid" value="00D780000008fpL">
+<input type=hidden name="retURL" value="http://google.com">
 
-<CENTER><IMG SRC="clouds.jpg" ALIGN="BOTTOM"> </CENTER>
+<!--  ----------------------------------------------------------------------  -->
+<!--  NOTA: Estos campos son elementos de depuración opcionales. Elimine      -->
+<!--  los comentarios de estas líneas si desea realizar una prueba en el      -->
+<!--  modo de depuración.                                                     -->
+<!--  <input type="hidden" name="debug" value=1>                              -->
+<!--  <input type="hidden" name="debugEmail"                                  -->
+<!--  value="ingenieria-quantics+472@quanticsgroup.com">                      -->
+<!--  ----------------------------------------------------------------------  -->
 
-<HR>
+<label for="first_name">Nombre</label><input  id="first_name" maxlength="40" name="first_name" size="20" type="text" /><br>
 
-<a href="http://somegreatsite.com">Link Name</a>
+<label for="last_name">Apellidos</label><input  id="last_name" maxlength="80" name="last_name" size="20" type="text" /><br>
 
-is a link to another nifty site
+<label for="email">Correo electrónico</label><input  id="email" maxlength="80" name="email" size="20" type="text" /><br>
 
-<H1>This is a Header</H1>
+<label for="company">Compañía</label><input  id="company" maxlength="40" name="company" size="20" type="text" /><br>
 
-<H2>This is a Medium Header</H2>
+<label for="city">Ciudad</label><input  id="city" maxlength="40" name="city" size="20" type="text" /><br>
 
-Send me mail at <a href="mailto:support@yourcompany.com">
+<label for="state">Estado/Provincia</label><input  id="state" maxlength="20" name="state" size="20" type="text" /><br>
 
-support@yourcompany.com</a>.
+<div class="g-recaptcha" data-sitekey="6LceR-8gAAAAAL23VTnqghgP2KM3MJRabhwZlc9s"></div><br>
+<input type="submit" name="submit">
 
-<P> This is a new paragraph!
-
-<P> <B>This is a new paragraph!</B>
-
-<BR> <B><I>This is a new sentence without a paragraph break, in bold italics.</I></B>
-
-<HR>
-
-</BODY>
-
-</HTML>
+</form>
